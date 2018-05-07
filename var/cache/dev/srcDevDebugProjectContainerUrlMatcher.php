@@ -28,25 +28,33 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             $canonicalMethod = 'GET';
         }
 
-        // adminindex
-        if ('/admin/index' === $pathinfo) {
-            return array (  '_controller' => 'App\\Controller\\AdminController::index',  '_route' => 'adminindex',);
-        }
-
-        if (0 === strpos($pathinfo, '/admin/l')) {
-            // adminlogin
-            if ('/admin/login' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\AdminController::login',  '_route' => 'adminlogin',);
+        if (0 === strpos($pathinfo, '/admin')) {
+            // adminindex
+            if ('/admin/index' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\AdminController::index',  '_route' => 'adminindex',);
             }
 
-            // adminlistefournisseurs
-            if ('/admin/listes/fournisseurs' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\AdminController::listeFournisseurs',  '_route' => 'adminlistefournisseurs',);
+            if (0 === strpos($pathinfo, '/admin/l')) {
+                // adminlogin
+                if ('/admin/login' === $pathinfo) {
+                    return array (  '_controller' => 'App\\Controller\\AdminController::login',  '_route' => 'adminlogin',);
+                }
+
+                // adminlistefournisseurs
+                if ('/admin/listes/fournisseurs' === $pathinfo) {
+                    return array (  '_controller' => 'App\\Controller\\AdminController::listeFournisseurs',  '_route' => 'adminlistefournisseurs',);
+                }
+
+                // adminlisteachats
+                if ('/admin/listes/achats' === $pathinfo) {
+                    return array (  '_controller' => 'App\\Controller\\AdminController::listeAchats',  '_route' => 'adminlisteachats',);
+                }
+
             }
 
-            // adminlisteachats
-            if ('/admin/listes/achats' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\AdminController::listeAchats',  '_route' => 'adminlisteachats',);
+            // adminnouveauachat
+            if ('/admin/nouveau/achat' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\AdminController::nouveauAchat',  '_route' => 'adminnouveauachat',);
             }
 
         }

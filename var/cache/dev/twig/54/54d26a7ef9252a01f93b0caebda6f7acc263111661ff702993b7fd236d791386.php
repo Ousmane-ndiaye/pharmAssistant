@@ -1165,7 +1165,7 @@ class __TwigTemplate_4c7ef4825dbb52b1c5f07797ddcf35809d6a719de46e4b93927cc13bd4e
             echo " ";
         }
         echo "\">
-                                <a href=\"#\">
+                                <a href=\"/admin/nouveau/achat\">
                                     <span class=\"glyphicon glyphicon-tags\"></span>
                                     Nouveau achat
                                 </a>
@@ -2555,7 +2555,7 @@ class __TwigTemplate_4c7ef4825dbb52b1c5f07797ddcf35809d6a719de46e4b93927cc13bd4e
                         </a>
                         <ul class=\"nav sub-nav\">
                             <li class=\"{% if activeNA is defined %} {{ activeNA }} {% endif %}\">
-                                <a href=\"#\">
+                                <a href=\"/admin/nouveau/achat\">
                                     <span class=\"glyphicon glyphicon-tags\"></span>
                                     Nouveau achat
                                 </a>

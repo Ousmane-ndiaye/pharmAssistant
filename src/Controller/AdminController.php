@@ -53,4 +53,15 @@ class AdminController extends Controller
             'activeHDA' => 'active',
         ]);
     }
+
+    /**
+     * @Route("/nouveau/achat", name="nouveauachat")
+     */
+    public function nouveauAchat(Request $request)
+    {
+        return $this->render('admin/nouveauachat.html.twig', [
+            'classbody' => 'datatables-page',
+            'activeNA' => 'active',
+        ]);
+    }
 }
