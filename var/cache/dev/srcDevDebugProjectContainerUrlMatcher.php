@@ -28,7 +28,30 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             $canonicalMethod = 'GET';
         }
 
-        if (0 === strpos($pathinfo, '/_')) {
+        // adminindex
+        if ('/admin/index' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\AdminController::index',  '_route' => 'adminindex',);
+        }
+
+        if (0 === strpos($pathinfo, '/admin/l')) {
+            // adminlogin
+            if ('/admin/login' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\AdminController::login',  '_route' => 'adminlogin',);
+            }
+
+            // adminlistefournisseurs
+            if ('/admin/listes/fournisseurs' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\AdminController::listeFournisseurs',  '_route' => 'adminlistefournisseurs',);
+            }
+
+            // adminlisteachats
+            if ('/admin/listes/achats' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\AdminController::listeAchats',  '_route' => 'adminlisteachats',);
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#sD', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));
